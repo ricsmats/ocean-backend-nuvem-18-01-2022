@@ -1,10 +1,16 @@
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
+require('dotenv').config();
 
+
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
+const dbHost = process.env.DB_HOST;
+const dbName = process.env.DB_NAME;
+
+// const dbName = "ocean_bancodados";
 // const url = "mongodb://localhost:27017";
-const url = "mongodb+srv://admin:uqkoUlFd6gJotzSU@cluster0.zyr7s.mongodb.net/";
-
-const dbName = "ocean_bancodados";
+const url = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}`;
 
 async function main() {
     // Conexão com o Banco de Dados
